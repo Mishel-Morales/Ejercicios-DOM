@@ -9,15 +9,16 @@ let total = ''
 let tecla = ''
 let digito = ''
 
-let br = document.createElement('br')
+let space = '  '
+let igual = '='
 
 const codigo = (n) =>{
     digito = n
     if(digito.charCodeAt(0) >=48 && digito.charCodeAt(0) <= 57){
         caja.append(digito)
-        caja.append(br)
+        caja.append(igual)
         caja.append(digito.charCodeAt(0))
-        caja.append(br)
+        caja.append(space)
     }
 }
 
@@ -51,9 +52,9 @@ resetear.addEventListener('click', () => {
 body.addEventListener('keyup', (event) => {
     if(event.keyCode >=65 && event.keyCode <= 90){
         caja.append(event.key.toUpperCase())
-        caja.append(br)
+        caja.append(igual)
         caja.append(event.keyCode)
-        caja.append(br)
+        caja.append(space)
     } else{
         codigo(event.key)
     }
