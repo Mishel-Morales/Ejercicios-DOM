@@ -5,11 +5,6 @@ let numero  = document.querySelector('h1')
 let body = document.querySelector('body')
 let caja = document.querySelector('.container')
 let botones = document.querySelectorAll('.btn')
-console.log(botones)
-// let btnBlue = document.querySelector('#blue')
-// let btnGreen = document.querySelector('#green')
-// let btnRed = document.querySelector('#red')
-// let btnYellow = document.querySelector('#yellow')
 
 let total = ''
 let tecla = ''
@@ -30,9 +25,20 @@ const codigo = (n) =>{
     }
 }
 
-const color = (value) =>{
-
-}
+botones.forEach(btn =>{
+    btn.addEventListener('click', (event) => {
+        console.log(event)
+        if(event.target.value == 'blue'){
+            body.className = 'bg-primary'
+        } else if(event.target.value == 'red'){
+            body.className = 'bg-danger'
+        } else if(event.target.value == 'green'){
+            body.className = 'bg-success'
+        } else if(event.target.value == 'yellow'){
+            body.className = 'bg-warning'
+        }
+    })
+})
 
 incrementar.addEventListener('click', (event) => {
     total = parseInt(numero.innerText) +1;
@@ -70,8 +76,4 @@ body.addEventListener('keyup', (event) => {
     } else{
         codigo(event.key)
     }
-})
-
-botones.addEventListener('click', (event) => {
-    color(event.value)
 })
